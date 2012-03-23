@@ -1,0 +1,56 @@
+<div id="navigation">
+      <ul>
+        <li><a href="#" id="chatting">聊天</a></li>
+        <li><a href="#" id="members">成员</a></li>	        
+      </ul>
+</div>
+<section id="chat_room" >
+  <table cellpadding="0" cellspacing="0" width="636" align="center" bgcolor="#fff" >
+    <tbody>
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+              <tr>
+                <td background="/static/img/bamboo_tc.jpg"
+                height="68" width="636">&nbsp;<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+              <tr>
+                <td background="static/img/bamboo_c.gif"
+                width="100%" height="1" style="color:#442200;">
+		<div id="msg_scrollbar"> 
+		  <div id="msg">
+		    {% include 'chat_list.html' %}
+		  </div>
+		</div>  
+		<div id="input">
+		  <textarea id="content"  autofocus ></textarea>       
+		</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table cellpadding="0" cellspacing="0" width="100%" >
+            <tbody>
+              <tr>
+                <td background="static/img/bamboo_bc.jpg"
+                height="145" width="636" valign="top">
+		<input type="button" class="form_submit" value="发送(Shift+Enter)" id="submit_msg"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="table_list_members"></section>
+<script>chatroom_page_loaded();</script>

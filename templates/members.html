@@ -1,0 +1,40 @@
+<center>
+  <h1>成员列表({{ online_members_count }}/{{ all_members_count }})</h1>  
+  <div id="member_list_scrollbar"> 
+    <table cellspacing="0" id="member_list_table" class="memberlist">
+
+      <thead>
+        <tr>
+	<td>用户名</td>
+	<td>姓  名</td>
+	<td>邮  箱</td>
+	<td>注册时间</td>
+	<td>目前状态</td>
+        </tr>
+      </thead>
+
+      <tbody id="member_list_body">
+      {% for user in user_list %}
+        {% if user.is_online %}
+	<tr class="online_members">
+	  <td>{{ user.account }}</td>          
+	  <td>{{ user.name }}</td>  
+	  <td>{{ user.email }}</td>
+	  <td> {{user.created_time|date:"Y-m-d"}}  </td>
+	  <td>在线</td> 
+	</tr>
+        {% else %}
+	<tr>        
+	  <td >{{ user.account }}</td>      
+	  <td>{{ user.name }}</td>  
+	  <td>{{ user.email }}</td>
+	  <td>  {{user.created_time|date:"Y-m-d"}} </td>
+	  <td>离线</td> 
+	</tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</center>
+<script>members_list_page_loaded();</script>

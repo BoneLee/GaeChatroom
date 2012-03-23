@@ -1,0 +1,10 @@
+<p>最近的聊天记录：</p>
+{% if chat_list %}
+      {% for chat in chat_list %}
+        <p style="color: {{ chat.user.msg_font_color }}" >
+	  &lt;{{ chat.user.account }}&gt; {{ chat.text }}      
+        </p> 
+      {% endfor %}
+{% else %}
+      <p>聊天记录为空</p> 
+{% endif %}

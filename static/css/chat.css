@@ -1,0 +1,391 @@
+html {
+    font: 100% arial, helvetica, sans-serif;/*将所有的正文字体变成类似楷体字样 但是仅仅对chrome有效！！！*/
+    background : url(../img/bg.png); /*加上背景图片*/
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    overflow: auto;
+    background: url("../img/bg-top.png") repeat-x scroll left top transparent;/*仅仅在网页顶端加入此背景图片*/
+}
+
+/*去掉a难看的下划线*/
+a  {text-decoration: none;}
+
+/*下面的风格与花 树设置相关*/
+canvas {
+    background-color: #000;/*黑色canvas*/
+    cursor: pointer;
+}
+
+#configArea {
+    padding: 0px 10px;
+}
+
+#drawArea{
+    background: #000;
+}
+/*clear按钮风格设置*/
+#buttonArea 
+{
+    float:left;
+    margin:8px 8px 8px 8px;
+    z-index: 1000;
+}
+#buttonArea a
+{
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #3d3d3d;
+    text-decoration: none;
+}
+#buttonArea a:hover 
+{
+    background-color: #333;
+}
+#btnClear {
+    color: #fff;
+    padding: 2px 6px;	      
+    border: 1px solid #3d3d3d;
+    text-decoration: none;
+    margin-left: 8px;
+    float:left;
+}
+#btnClear:hover 
+{
+    background-color: #333;
+}
+#btnClear3 {
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #3d3d3d;
+    text-decoration: none;
+    /*float:right;*/
+}
+#btnClear3:hover 
+{
+    background-color: #333;
+}
+#configArea {
+    background: #000;
+    padding: 10px;
+}
+
+#preview 
+{
+    border: 2px solid White;
+    position: absolute;
+    background: Black;
+}
+#previewArea
+{
+    background: White;
+    display: none;
+    position: absolute;
+}
+
+.label 
+{
+    float: left;
+    color:#FFF;
+    margin-right: 1em;
+}
+.slider 
+{
+    color:#FFF;
+    float: left;
+    width: 80px;
+    margin-right: 2em;
+    margin-top: 2px;
+}
+
+#lblPreview
+{
+    padding: 0px 4px;
+}
+
+
+/*table聊天列 采用原生的白色背景*/
+#chat_col { background:#fff;}
+
+/*聊天页面头部的渲染*/
+header {
+    background: url(../img/bg-header.png)   repeat-x top left;
+    height: 100px;
+}
+/*使linux的log右对齐*/
+#gnulinuxlog {
+    position: relative;
+    top: 12px;
+    float: right;
+    right: 15px;
+}
+#msg.p{
+    line-height:1.2em;
+}
+p{
+    font-size: 11pt;  
+}
+/*如果单独是文字段落则设置新的padding*/
+p.par{
+    padding-left: 10px; 
+    padding-right: 10px;
+    text-indent: 2em; /*端首缩进2个汉字，em是相对单位，2em即现在一个字大小的两倍*/
+    font-size: 13pt;
+}
+/*开源协会聊天室字体颜色*/
+#chat_title {
+    color: #3F4F8F;
+}
+/*登录或者注册表单的风格设置*/
+form {
+    vertical-align:center;
+    margin-left:auto; /*水平居中*/
+    margin-right:auto;
+
+    background-color: #D2D7EC; /*背景色：light blue*/
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #3F4F8F;/*边框颜色：dark blue*/
+
+    -moz-border-radius: 8px; /*表单外围：圆角风格*/
+    -webkit-border-radius: 8px;
+}
+/*提交表单按钮的风格设置*/
+.form_submit  {
+    height: 32px;
+    font-size: 13px;
+    border: 1px solid #3079ED;
+    color: white;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    font-family: inherit;
+}
+.form_submit:hover {
+    color: white;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    background-color: #007;
+}
+/*表单里面的编辑框风格设置*/
+.edit {
+    padding: 3px;
+    border: 1px solid #78C2C5;
+    width: 150px; 
+    margin: 10px;
+}
+/*表单里面提交按钮的风格设置*/
+.form_submit {
+    background: #3F4F8F; /*背景色：blue*/
+    margin-right: 20px;
+    border: 1px ;
+    border-radius: 8px 8px 8px 8px;
+    width: 60px;
+}
+/*提交消息按钮比其他按钮要宽*/
+#submit_msg {
+    width: 120px;
+    float: right;
+    margin:  2px 30px 0px 0px;
+    /*position: absolute;
+    right: 15px;*/
+}
+/*通知 当用户名密码输入出错时 忘记密码提示*/
+#notification {
+    font-size:11pt;
+    color: #007;
+    vertical-align:bottom;/*紧紧位于登录框下方*/
+    margin:auto;/*水平居中*/
+    width:95%;/*必须要这个 否则无法水平居中*/
+}
+#noscript {    
+    color:#FFF;
+    margin:auto;/*水平居中*/
+    width:100%;/*必须要这个 否则无法水平居中*/
+}
+/*成员列表的table加上滚动条*/
+#member_list_scrollbar {
+    height:420px;
+    overflow-y:auto;
+}
+/*给消息内容加上滚动条 方便查看*/
+#msg_scrollbar {
+    height:260px;
+    width:580px;
+    overflow-y:auto; 
+    border: 1px solid #F4FFBA;
+    float: right;
+    margin: 2px 30px 0px 0px;
+}
+/*消息正文的字体等设置*/
+#msg {
+    font-size: 12pt; 
+    margin-left:2%;
+    margin-right:2%
+}
+/**********************************/
+#chat_main{
+  overflow:auto; 
+}
+/*消息输入字体大小*/
+#input {
+    font-size: 12pt;
+}
+/*消息输入框风格设置*/
+#content {
+    width:575px; 
+    height:36px;
+    overflow:auto; 
+    margin-top:8px;
+    border: 1px solid  #FFFCBA;
+    float: right;
+    margin: 2px 30px 0px 0px;
+}
+/*聊天页面导航条风格设置*/
+#navigation {
+    background-color: #3F4F8F;
+    /*border-top: 3px solid #7DA52B;*/
+    height: 20px;
+    overflow:hidden;
+    padding: 7px;
+    /*margin-top: 5px;*/
+    /*border-bottom: 3px solid #36c;*/
+}
+#navigation ul {
+    list-style: none;
+    text-align: right;
+    float:right;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+#navigation li {    
+    font-size: 14px;
+    display: inline;
+    padding: .5em;
+}
+/*使导航条中 成员 聊天 链接中的字体显示白色*/
+#navigation a {
+    color: white;
+}
+
+/*查看成员表格的渲染*/
+.memberlist table{
+    border: 1px solid #666;
+}
+.memberlist tr td{
+    font-size: 11pt;
+    padding: 3px 8px;
+    background: #fff;
+}
+.memberlist thead td{
+    color: #fff;
+    background-color: #C8C028;
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+}
+.memberlist tbody td{
+    border-bottom: 1px solid #D9D9D9;
+}
+.memberlist tbody tr.online_members td{
+    background: #3d80df;
+    color: #ffffff;
+    font-weight: bold;
+    border-bottom: 1px solid #7DAAEA;
+}
+.memberlist tbody tr.ruled td{
+    color: #000;
+    background-color: #C6E3FF; 
+    font-weight: bold;
+    /*border-color: #3292FC;*/
+}
+/* Opera fix */
+head:first-child+body tr.ruled td{
+    background-color: #C6E3FF; 
+}
+
+/*这是私人聊天对话框风格*/
+.my_container {
+   color: orange;
+}
+ 
+.my_header {
+   font-family: Times New Roman, Serif
+   font-size: 16px;
+   font-style: oblique;
+   font-weight: bold;
+   letter-spacing: 2px;
+   background: gold;
+}
+ 
+.my_frame {
+   letter-spacing: 3px;
+   font-size: 14px;
+}
+ 
+.my_footer {
+   letter-spacing: 2px;
+   background: #eee;
+   color: #333;
+}
+ 
+.my_selected_header {
+   background: purple;
+   color: #ddd;
+}
+
+/*私人消息框风格设置*/
+/*给消息内容加上滚动条 方便查看*/
+#msg_scrollbar2 {
+    /*background:#FFF;url("../img/yanzi2.jpg");*/
+    height:270px;
+    width:476px;
+    overflow-y:auto; 
+    border: 1px solid #999;
+    margin:5px 0px 10px 10px;
+}
+/*消息正文的字体等设置*/
+#msg2 {
+    font-size: 12pt; 
+    margin-left:2%;
+    margin-right:2%
+}
+.send_pmsg {
+    width: 120px;
+    float: right;
+    margin:  4px 0 4px 0;
+}
+/*消息输入字体大小*/
+#input2 {
+    font-size: 12pt;
+    width:476px; 
+    margin:8px 0px 10px 10px;
+}
+/*消息输入框风格设置*/
+#content2 {
+    width:472px; 
+    height:36px;
+    overflow:auto; 
+    border: 1px solid #999;
+}
+/*popupwindow窗口的风格设置*/
+.my_container {
+   color: #3C3B37; 
+}
+.my_header {
+   background: #3C3B37;
+}
+.my_frame {
+   letter-spacing: 1px;
+   font-size: 11pt;
+}
+/*.my_footer {
+   letter-spacing: 2px;
+   background: #eee;
+   color: #333;
+}
+*/
+.my_selected_header {
+   background: #3C3B37; 
+   color: #ddd;
+}

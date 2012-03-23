@@ -1,0 +1,29 @@
+<center><h1 id="chat_title">开源协会聊天室</h1></center>
+<p class="par">具有 ubuntu 精神的人心胸开阔，乐于助人，见贤思齐而不忌妒贤能，因为他或她拥有适度的自信，
+而这源自如下认识： 自己属于一个更大的整体，当他人受到伤害或死去时，当他人受到折磨或压迫时，这个整体就会消失。</p>
+
+<section id="sign"> <!--登录或者是注册的页面都在这里面-->
+    <form action="">
+	<center><h2 >请登录</h2></center>
+	    <label>用户名</label>
+	    <input  type="text" name="account" id='user_name' class="edit" placeholder="user name here" autofocus/>
+	    <label>密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+	    <input type="password" id='user_pw' class="edit"  name="password"  placeholder="password here"/><br>
+	    <a href="#" id="forgot_password">忘记密码？</a>
+	    新用户<a href="#" id="register">注册</a>
+	    <input type="submit"  class="form_submit"  value="登录" id="login_submit" onclick=""/>
+    </form>	
+    <!--通知 当用户名密码输入错误 或者找回密码时用-->
+    <div id="notification">
+	<center>
+	  <p id="noti_content">      
+		{% ifnotequal error None %}          
+		{{ error }}     
+		{% endifnotequal %}
+	  </p>
+	</center>
+    </div>
+</section>
+<script>
+  login_page_loaded();
+</script>

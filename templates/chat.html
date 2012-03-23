@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html><!-- manifest="/chat/cache"-->
+  <!--注：head按照html5的规则进行了一些修改-->
+  <head>
+    <title>中科院开源软件协会聊天频道</title>    
+    <meta name="generator" content="Bluefish 2.0.2" />
+    <meta name="author" content="spark,Bone Lee" />
+    <meta name="date" content="2011-11-29T00:01:30+0800" />
+    <!-- 添加搜索引擎的关键字、描述等 -->
+    <meta name="copyright" content="Open Source Software Club of CAS"/>
+    <meta name="keywords" content="Open Source Software Club,osclub,CAS,chat,open cas,聊天,中科院,开源软件协会,开源协会,开源协会聊天室"/>
+    <meta name="description" content="中科院开源软件协会(简称“开源协会”)是中科院研究生院的学生社团组织。协会的宗旨在于提高国内的开源学术气氛，
+          为开源软件技术提供交流平台，推广和普及开源运动。"/>
+    <link rel="shortcut icon" href="/static/img/favicon.png"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <!--<meta http-equiv="expires" content="-1"/> 设置到期时间 content="-1"，网页在任何时候都不能被Cache存储   -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui-1.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.window.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/chat.css">
+    <!--将所有的css代码合并到一起放在了chat.css里面 如需修改 请在此文件进行-->
+
+
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.window.js"></script>
+    <script type="text/javascript" src="/static/js/PlasmaTree.js"></script>
+    <script type="text/javascript" src="/static/js/FlowerPower.js"></script>
+    <script src="/_ah/channel/jsapi"></script>   <!-- channel api客户端js代码 在此里面 -->
+    <script type="text/javascript" src="/static/js/channel.js"></script> <!--尝试用本地文件替换 -->
+<!-- bug修复
+/_ah/channel/jsapi returns an empty file for 0.3% of clients
+
+We heavily use the Channel API javascript library (we do more than 1'000'000 calls a day).
+
+About every 300th session the file returned by "/_ah/channel/jsapi" is completely blank and
+therefore "new goog.appengine.Channel(id);" fails, because "goog" is not defined. We see
+this more often happening on Android Devices than desktop computers.
+
+The most annoying thing however is, that this blank js file is then cached on the client side for
+a very long time and reloading the page doesnt help to fix the js error. You need to clear your cache to fix it.
+
+We have seen this issue consistently for a couple of weeks now and were able to measure it continuously.
+
+I have filed a production bug here: http://code.google.com/p/googleappengine/issues/detail?id=6294
+Please star it if you use the Channel API.
+此外政府会封杀这个网站：https://talkgadget.google.com/talkgadget/channel.js 上述js请求本质上是访问这个网站
+-->
+    <!-- 将所有的js代码合并加入到了chat.js独立文件里 如需修改 请在此文件进行-->
+    <script type="text/javascript" src="/static/js/chat.js" ></script> <!--去掉async="true"  否则有bug 并且很严重！！！-->
+  </head>
+  <body>
+    <noscript>
+      <div id="noscript" >需开启Javascript才能够正常访问本站！</div>
+    </noscript>
+<!-- 不支持html5测试 -->
+    <!--为了和协会网站主页的风格保持一致 在设计页面的时候放弃了layer布局-->
+    <div style="height: 710px;"> <!-- 如果用户屏幕过小 加入滚动条 待测试是否正常？？？？？？？？？？-->
+        <table id="main" cellpadding="0" cellspacing="1" width="1280" height="100%" align="center"  style="display: table;">
+            <tbody>
+              <tr>                  
+                <!--花-->
+                <td rowspan="3" width="320" height="700" valign="top">
+                <!--div style="position: absolute; left: 0px; top: 0px; width: 25%; height: 100%; z-index: 1; " id="layer1"-->
+
+                  <!--花朵绘制的一些设置 本来应该将style加入到css文件统一管理的 但考虑到维护性 还是决定保持原样-->
+                  <div id="configArea">        
+                    <div class="label">Siz</div>
+                    <div class="slider"><div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="sliderBloomRadius"><div style="left: 5.40541%; width: 40.5405%;" class="ui-slider-range ui-widget-header"></div><a style="left: 5.40541%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 45.9459%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div></div>
+                    <div class="label">Pet</div>
+                    <div class="slider"><div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="sliderPetalCount"><div style="left: 9.09091%; width: 45.4545%;" class="ui-slider-range ui-widget-header"></div><a style="left: 9.09091%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 54.5455%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div></div>    
+                    <p>&nbsp;</p>
+                    <div class="label">Bez</div>
+                    <div class="slider"><div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="sliderPetalStretch"><div style="left: 0%; width: 58.3333%;" class="ui-slider-range ui-widget-header"></div><a style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 58.3333%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div></div>
+                    <div class="label">Col</div>
+                    <div class="slider"><div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="sliderColor"><div style="left: 0%; width: 8%;" class="ui-slider-range ui-widget-header"></div><a style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 8%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div></div>
+                    <div class="label" style="color: #fff; padding: 5px 10px; text-decoration: none;"><a id="btnClear" href="#">Clear</a></div>
+                    <div style="clear: both;"></div>
+                  </div>
+
+                  <!--那些美丽的花儿就画在这里面了-->
+                  <canvas id="garden" width="320" height="700" style="cursor: crosshair;"></canvas>
+
+                  <!--点击花朵设置链接后的效果预览 -->
+                  <div id="previewArea"> 
+                    <div id="lblPreview">预览</div>
+                    <canvas id="preview" width="300" height="200"></canvas>
+                  </div>  
+                </td>
+
+                <!--聊天-->
+                <td width="640" height="700" valign="top" id="chat_col">                  
+                  <!-- 添加的登录界面 -->
+                  <header>
+                      <hgroup>
+                            <!--更改url--><a href="www.osclub.org" title="退出聊天 回到主页"><!--这是左上角小图标点击时候的链接  点击logo的效果-->
+                            <img border="0" src="/static/img/osclub_logo.png" id="osclublogo" alt="oslub logo"></a>          
+                            <img src="/static/img/logo.png" id="osclubcaption" alt="中科院开源协会">
+                            <!--这里应该是放的咱们协会的logo 需要找师妹帮忙做-->
+                            <!--上面是协会的标题图片 就是中科院开源协会几个字 需要找师妹帮忙 注意更改名字-->                        
+                            <img src="/static/img/gnu_linux_1.png" height="75%" width="25%" id="gnulinuxlog" alt="GNU linux logo">           
+                      </hgroup>                    
+                  </header>
+                  <div id="chat_main"> <!--聊天的主界面在这里面-->
+                      {% include 'login.html' %}                                             
+                  </div>
+	        <!--私聊窗口的显示内容-->
+	        <div id="private_chat" style="display:none;">
+		  <div id="msg_scrollbar2"> 
+		    <div id="msg2" >
+		      <!--p id="one_msg">这是你的私人聊天信息！ </p-->         
+		    </div>
+		  </div>
+		  <div id="input2">    
+		    <textarea id="content2"  autofocus ></textarea><br>      
+		    <input type="button" id="submit_msg2" class="form_submit  send_pmsg" value="发送(Shift+Enter)" />
+		  </div>
+	        </div>
+                </td>
+
+                <!--树-->
+                <td width="320" height="700" class="headergreen" valign="top" >
+                <!--div style="position: absolute; left: 75%; top: 0px; width: 25%; height: 100%; z-index: 3;" id="layer3"-->
+                    <div id="drawArea">
+                      <div id="buttonArea"><a href="#" id="btnClear3">Clear</a></div>
+                      <canvas width="320" height="700" id="canvas"></canvas><!--那些可爱的树就画在这里面了-->
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+        </table>  
+    </div>
+  </body>
+</html>
